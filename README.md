@@ -17,6 +17,8 @@ sudo git clone https://github.com/mariadb-corporation/MaxScale
 
 5.Add phpmyadmin to docker-compose.yml as described in the "docker-compose.yml" section
 
+6.Use phpmyadmin to run a SQL command that shards a database by the id being even or odd.
+
 
 # docker-compose.yml:
 version: '2'
