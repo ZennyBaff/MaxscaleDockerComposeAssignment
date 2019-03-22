@@ -15,22 +15,8 @@ https://hub.docker.com/_/mariadb
 
 sudo git clone https://github.com/mariadb-corporation/MaxScale
 
-5.Add phpmyadmin to docker-compose.yml
-"
-phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        container_name: phpmyadmin
-        depends_on:
-            - master
-        environment:
-            - PMA_HOST=maxscale
-            - PMA_PORT=4006
-        restart: always
-        ports:
-            - 8080:80
-        volumes:
-            - /sessions
-"
+5.Add phpmyadmin to docker-compose.yml as described in the "docker-compose.yml" section
+
 
 # docker-compose.yml:
 version: '2'
