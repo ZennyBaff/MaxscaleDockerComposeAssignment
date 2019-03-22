@@ -1,8 +1,37 @@
 # Real World Project: Database Shard Github 
-1. install Docker
+1.Install Docker
 
 sudo apt install docker.io
-2.
+
+2.Install Docker Compose
+
+https://docs.docker.com/compose/install/
+
+3.Install mariadb
+
+https://hub.docker.com/_/mariadb
+
+4.Pull MAxscale github and connect it with the existing containers
+
+sudo git clone https://github.com/mariadb-corporation/MaxScale
+
+5.Add phpmyadmin to docker-compose.yml
+"
+phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
+        depends_on:
+            - master
+        environment:
+            - PMA_HOST=maxscale
+            - PMA_PORT=4006
+        restart: always
+        ports:
+            - 8080:80
+        volumes:
+            - /sessions
+"
+
 # docker-compose.yml:
 version: '2'
 services:
